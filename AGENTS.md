@@ -1,11 +1,28 @@
-# Obsidian community plugin
+# Obsidian community plugin (Sidebar Fold)
 
 ## Project overview
 
-- Target: Obsidian Community Plugin (TypeScript → bundled JavaScript).
-- Entry point: `main.ts` compiled to `main.js` and loaded by Obsidian.
+- Plugin ID: `sidebar-fold` (must remain stable after release).
+- Plugin name: `Sidebar Fold`.
+- Target: Obsidian Community Plugin (TypeScript -> bundled JavaScript).
+- Entry point: `src/main.ts`, bundled to `main.js` and loaded by Obsidian.
 - Required release artifacts: `main.js`, `manifest.json`, and optional `styles.css`.
 
+## 项目业务实际
+
+- 业务目标（README）：在文件夹展开时折叠低优先级内容，保持侧边栏更干净，降低视觉干扰，帮助用户聚焦常用内容。
+- 当前代码现状（以 `src/` 为准）：
+  - 已实现插件加载与设置面板。
+  - 已实现 `visible_list_item_number`（可见条目数）配置与持久化。
+  - 暂未看到“自动折叠规则 / 忽略目录 / 最近打开排序”的业务逻辑落地代码。
+- 需求边界（当前仓库）：
+  - 默认离线、本地运行，不引入非必要网络请求。
+  - 面向桌面与移动端（`manifest.json` 中 `isDesktopOnly: false`），避免依赖桌面专有 API。
+- 交付验收（DoD）应对齐 README：
+  - 可见条目数可配置。
+  - 折叠规则生效（含层级表达式解析）。
+  - 忽略目录可配置且在重命名/移动后可持续生效。
+  - 插件可正常加载，重载后设置不丢失。
 ## Environment & tooling
 
 - Node.js: use current LTS (Node 18+ recommended).
@@ -13,7 +30,7 @@
 - **Bundler: esbuild** (required for this sample - `esbuild.config.mjs` and build scripts depend on it). Alternative bundlers like Rollup or webpack are acceptable for other projects if they bundle all external dependencies into `main.js`.
 - Types: `obsidian` type definitions.
 
-**Note**: This sample project has specific technical dependencies on npm and esbuild. If you're creating a plugin from scratch, you can choose different tools, but you'll need to replace the build configuration accordingly.
+**Note**: This repository is currently wired for npm + esbuild (`package.json` scripts and `esbuild.config.mjs`).
 
 ### Install
 
@@ -249,3 +266,4 @@ this.registerInterval(window.setInterval(() => { /* ... */ }, 1000));
 - Developer policies: https://docs.obsidian.md/Developer+policies
 - Plugin guidelines: https://docs.obsidian.md/Plugins/Releasing/Plugin+guidelines
 - Style guide: https://help.obsidian.md/style-guide
+

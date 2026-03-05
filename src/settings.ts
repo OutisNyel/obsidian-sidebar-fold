@@ -43,7 +43,6 @@ export class SidebarFoldSettingTab extends PluginSettingTab {
 				  const n = Number(value);
 				  if (!Number.isInteger(n) || n < 1) {
 					new Notice('Please enter an integer greater than or equal to 1.');
-					// this.plugin.settings.visible_list_item_number = DEFAULT_SETTINGS.visible_list_item_number;
 					return;
 				  }
 				  this.plugin.settings.visible_list_item_number = n;

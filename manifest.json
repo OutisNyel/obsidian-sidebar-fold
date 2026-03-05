@@ -3,9 +3,9 @@
 	"name": "Sidebar Fold",
 	"version": "0.0.1",
 	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
+	"description": "This plugin folds rarely used files when expanding folders, keeping the file tree clean and help users focus on important files.",
+	"author": "OutisNyel",
+	"authorUrl": "https://github.com/OutisNyel",
+	"fundingUrl": "https://github.com/OutisNyel",
 	"isDesktopOnly": false
 }
